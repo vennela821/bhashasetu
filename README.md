@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-The Vite development server forwards `/api` requests to `http://localhost:8000`. For a deployed frontend, set `VITE_API_BASE_URL` to the backend origin. On the backend, set `FRONTEND_ORIGINS` to the exact deployed frontend origin(s), `GEMINI_API_KEY`, and optionally `DATABASE_URL`, `GEMINI_MODEL`, `GEMINI_TTS_MODEL`, `GEMINI_TIMEOUT_MS`, and `MAX_UPLOAD_MB`. The default text model is `gemini-3.1-flash-lite`; the speech endpoint uses `gemini-3.8-flash-lite-tts`. Do not place Gemini secrets in any `VITE_*` variable. `.env` is ignored by Git.
+The Vite development server forwards `/api` requests to `http://localhost:8000`. In production, the frontend uses the configured `VITE_API_BASE_URL`, or falls back to the deployed Render API origin in `src/App.jsx`. On the backend, set `FRONTEND_ORIGINS` to the exact deployed frontend origin(s), `GEMINI_API_KEY`, and optionally `DATABASE_URL`, `GEMINI_MODEL`, `GEMINI_TTS_MODEL`, `GEMINI_TIMEOUT_MS`, and `MAX_UPLOAD_MB`. The default text model is `gemini-3.1-flash-lite`; the speech endpoint uses `gemini-3.8-flash-lite-tts`. Do not place Gemini secrets in any `VITE_*` variable. `.env` is ignored by Git.
 
 API docs are available at `/docs`; `/api/health` reports whether the server has a Gemini key configured.
 

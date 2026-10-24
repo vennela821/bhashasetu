@@ -793,7 +793,9 @@ const SAMPLE_PRESETS = {
   ],
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+// Use the deployed API by default in production so the Vercel app still works
+// when VITE_API_BASE_URL has not been added to the Vercel project settings.
+const API_BASE = import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? "https://bhashasetu-uj95.onrender.com" : "");
 const PREFERENCES_KEY = "bhashasetu.preferences";
 const LOGIN_DISMISSED_KEY = "bhashasetu.loginPromptDismissedAt";
 const FACT_LABELS = {
